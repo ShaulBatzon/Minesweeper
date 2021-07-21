@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylsheet" href="main.css">
+    <title>Minesweeper</title>
+</head>
+
+<body onload="initGame()" oncontextmenu="return false;">
+
+    <div class="frame">
+        <div class="level">
+            <input type="radio" id="level1" name="level" value=1 checked><label for="level1">Beginner</label>
+            <input type="radio" id="level2" name="level" value=2><label for="level2">Medium</label>
+            <input type="radio" id="level3" name="level" value=3><label for="level3">Expert</label>
+        </div>
+        <div class="stopper"></div>
+        <div class="board-container"></div>
+    </div>
+
+
+
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
