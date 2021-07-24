@@ -1,7 +1,7 @@
-body{
-    background-image: url("/img/alien-6469061_1920.JPG");
+.img{
+    background-image: url("https://shaulbatzon.github.io/Minesweeper//img/alien-6469061_1920.JPG");
+    background-color: lightgrey;
     background-size: cover;
-    background-color: #64751b;
     background-repeat: no-repeat;
     height: 500px;
 }
