@@ -1,3 +1,83 @@
-.frame{
+body{
+    background-image: url("/img/alien-6469061_1920.jpg");
+    background-size: cover;
+    background-color: #64751b;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+table{
     margin: auto;
+    margin-top: 20px;
+}
+
+.cell {
+    width:40px; 
+    height:40px;
+    text-align: center;
+    background-color: rgb(0 0 0 / 79%);
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+.frame{
+    position: fixed;
+    width: 100%;
+    padding: 30px 0;
+    font-family: 'Ubuntu',sans-serif;
+    transition: all 0.3s ease;
+}
+
+.frame .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.level .buttons {
+    list-style: none;
+    display: inline-block;
+}
+
+.level .btnLevel1, .btnLevel2, .btnLevel3 {
+    display: inline-block;
+    color: #fff;
+    background-color: rgb(0 0 0 / 79%);
+    padding: 7px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.level :hover {
+    color: black;
+    cursor: pointer;
+    background: none;
+}
+
+.details{
+    margin-left: 50%;
+}
+
+.result{
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.stopper{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 75%;
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.isShown{
+    background-color: #252525a1;
 }

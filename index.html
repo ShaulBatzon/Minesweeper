@@ -5,27 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylsheet" href="main.css">
-    <title>Minesweeper</title>
+    <!-- Read about routing use './ and ../ before the route' -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Aliensweeper</title>
 </head>
 
-<body onload="initGame()" oncontextmenu="return false;">
+<body onload="initGame()">
 
-    <div class="frame">
-        <div class="level">
-            <input type="radio" id="level1" name="level" value=1 checked><label for="level1">Beginner</label>
-            <input type="radio" id="level2" name="level" value=2><label for="level2">Medium</label>
-            <input type="radio" id="level3" name="level" value=3><label for="level3">Expert</label>
-        </div>
+    
+    <section class="frame">
         <div class="stopper"></div>
-        <div class="board-container"></div>
-    </div>
+        <div class="box">
+
+            <div class="level">
+                <div class="buttons">
+                    <button class="btnLevel1" onclick="createLevel(this)">Beginner</button>
+                    <button class="btnLevel2" onclick="createLevel(this)">Medium</button>
+                    <button class="btnLevel3" onclick="createLevel(this)">Expert</button>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="result"></div>
+        </div>
+        <table oncontextmenu="return false;">
+            <tbody class="board"></tbody>
+        </table>
+    </section>
+
 
 
 
 
     <script src="js/utils.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/game.js"></script>
 </body>
 
 </html>

@@ -1,25 +1,8 @@
-//render mat
-function renderMat(mat, selector) {
-    var strHTML = '<table border="0"><tbody>';
-    for (var i = 0; i < mat.length; i++) {
-        strHTML += '<tr>';
-        for (var j = 0; j < mat[0].length; j++) {
-            var cell = mat[i][j];
-            var className = 'cell cell-' + i + '-' + j;
-            strHTML += `<td class="' + className + '" onClick="cellClicked(this,${i},${j})" oncontextmenu="placeFlag(this)">  ${cell}   </td>` ;
-        }
-        strHTML += '</tr>'
-    }
-    strHTML += '</tbody></table>';
-    var elContainer = document.querySelector(selector);
-    elContainer.innerHTML = strHTML;
-}
-
 // render cell location such as: {i: 2, j: 7}
 function renderCell(location, value) {
     // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
-    elCell.innerHTML = value;
+    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
+    elCell.innerText = value;
 }
 
 //return random color
@@ -73,6 +56,15 @@ function copyMat(mat) {
         }
     }
     return newMat;
+}
+
+function getClassName(location) {
+	var cellClass = 'cell-' + location.i + '-' + location.j;
+	return cellClass;
+}
+
+function getElementHTML(i, j) {
+    return document.querySelector(`.cell-${i}-${j}`);
 }
 
 function getCellCoord(strCellClass) {
@@ -135,47 +127,3 @@ function startTimer() {
         min = 0;
     }
     
-    
-    
-    
-    // timer
-    // function startTimer() {
-        //     renderTimer();
-//     gStartTime = Date.now();
-//     gTimerInterval = setInterval(function () {
-//         var msDiff = Date.now() - gStartTime;
-//         var secs = '' + parseInt((msDiff / 1000) % 60);
-//         if (secs.length === 1) secs = '0' + secs;
-
-//         var min = '' + parseInt(msDiff / 1000 / 60);
-//         if (min.length === 1) min = '0' + min;
-
-//         var strMsDiff = '' + msDiff;
-
-//         var miliSecs = strMsDiff.charAt(strMsDiff.length - 3) +
-//             strMsDiff.charAt(strMsDiff.length - 2);
-
-//         if (miliSecs.length === 1) miliSecs = '0' + miliSecs;
-//         console.log(miliSecs);
-
-//         var passedTime = `${min}:${secs}.${miliSecs}`;
-//         var elTimer = document.querySelector('.timer');
-//         elTimer.innerText = passedTime;
-//     },
-//         10);
-// }
-// function renderTimer() {
-//     var colSpanTimer = 2;
-//     var colSpanTimerText = 2;
-//     if (gLevel === 25) {
-//         colSpanTimer = 3;
-//     } else if (gLevel === 36) {
-//         colSpanTimer = 3;
-//         colSpanTimerText = 3;
-//     }
-//     var strHTML = `<tr style="font-weight: bold; ">
-//         <td colspan="${colSpanTimerText}" style="border: 0px; font-size: 20px; height: auto;">Game Time:</td>
-//         <td colspan="${colSpanTimer}" class="timer" style="border: 0px; font-size: 25px; height: auto;"></td></tr>`;
-//     var elTr = document.querySelectorAll('.touch tr')[1];
-//     elTr.innerHTML = strHTML;
-// }
