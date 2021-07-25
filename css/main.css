@@ -68,8 +68,8 @@ table{
 }
 
 .result{
-    margin-top: 15px;
-    font-size: 20px;
+    margin-left: 49%;
+    font-size: 40px;
 }
 
 .stopper{
@@ -90,11 +90,4 @@ table{
 
 .three{
     color: red;
-}
-
-.border{
-    border: solid #f4ff299f;
-    border-radius: 20px;
-    width: fit-content;
-    margin: auto;
 }

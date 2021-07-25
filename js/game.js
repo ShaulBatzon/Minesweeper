@@ -180,7 +180,7 @@ function cellClicked(elCell, i, j) {
     }
     if (!currCell.isMine && currCell.minesAroundCount > 0) {
         if (currCell.minesAroundCount === 2)elCell.classList.add('two');
-        if (currCell.minesAroundCount === 3) elCell.classList.add('three');
+        if (currCell.minesAroundCount > 2) elCell.classList.add('three');
         elCell.innerHTML = currCell.minesAroundCount;
     }
     if (currCell.minesAroundCount === 0) {
@@ -249,7 +249,7 @@ function expandShown(board, elCell, locI, locJ) {
                 else {
                     elCell = document.querySelector(`td.cell.cell-${i}-${j}`);
                     if (board[i][j].minesAroundCount === 2) elCell.classList.add('two');
-                    if (board[i][j].minesAroundCount === 3) elCell.classList.add('three');
+                    if (board[i][j].minesAroundCount > 2) elCell.classList.add('three');
                     elCell.innerHTML = board[i][j].minesAroundCount;
                     board[i][j].isShown = true;
                     elCell.classList.add('isShown');
