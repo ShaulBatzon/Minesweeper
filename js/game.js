@@ -103,14 +103,11 @@ function renderBoard(board) {
             var currCell = board[i][j];
 
             var cellClass = getClassName({ i, j });
-            // showing and hiding the cell content
             if (currCell.isShown) cellClass += ' isShown';
 
-            //TODO - Change To template string
             strHTML += '\t<td class="cell ' + cellClass +
                 `" onclick="cellClicked(this, ${i},${j})"  oncontextmenu="placeFlag(this, ${i},${j})" >\n`;
-
-            // TODO - change to switch case statement
+            
             if (currCell.isMarked) strHTML += FLAG;
             if (currCell.isMine && currCell.isShown) {
                 strHTML += MINE;
@@ -179,11 +176,11 @@ function cellClicked(elCell, i, j) {
     if (currCell.isMarked) return;
     if (currCell.isMine) {
         elCell.innerHTML = MINE;
-        elCell.classList.add('lose');
-        console.log(elCell.classList);
         onLose();
     }
     if (!currCell.isMine && currCell.minesAroundCount > 0) {
+        if (currCell.minesAroundCount === 2)elCell.classList.add('two');
+        if (currCell.minesAroundCount === 3) elCell.classList.add('three');
         elCell.innerHTML = currCell.minesAroundCount;
     }
     if (currCell.minesAroundCount === 0) {
@@ -247,9 +244,12 @@ function expandShown(board, elCell, locI, locJ) {
                 if (board[i][j].minesAroundCount === 0){
                      board[i][j].isShown = true;
                      elCell.classList.add('isShown');
+                     expandShown();
                 }
                 else {
                     elCell = document.querySelector(`td.cell.cell-${i}-${j}`);
+                    if (board[i][j].minesAroundCount === 2) elCell.classList.add('two');
+                    if (board[i][j].minesAroundCount === 3) elCell.classList.add('three');
                     elCell.innerHTML = board[i][j].minesAroundCount;
                     board[i][j].isShown = true;
                     elCell.classList.add('isShown');
