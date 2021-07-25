@@ -93,7 +93,7 @@ table{
 }
 
 .border{
-    border: solid rgba(128, 128, 128, 0.281);
+    border: solid #f4ff299f;
     border-radius: 20px;
     width: fit-content;
     margin: auto;
